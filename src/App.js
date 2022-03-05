@@ -161,7 +161,7 @@ const App = () => {
           // mint NFT
           const tx = await connectedContract.mintNFTEth({
             value: ethers.utils.parseEther("0.1", 'ether').toHexString(),
-            gasLimit: 5000000,
+            gasLimit: 10000000,
             gasPrice: gasP._hex,
           });
 
@@ -210,7 +210,6 @@ const App = () => {
       className="cta-button connect-wallet-button"
       onClick={disconnectWallet}
     >
-      Disconnect Wallet
     </button>
   );
 
@@ -230,12 +229,26 @@ const App = () => {
               <img src={openseaLogo} alt="opensea-logo" className="opensea-logo" />View Collection on OpenSea</a>
         </div>
         <div className="header-container">
-          {currentUserAccount
-            ? renderMintNFTButton()
-            : renderNotConnectedContainer()}
+          <li className="hover:text-purple-500 hover:border-purple-500 cursor-pointer px-4 py-2 font-extrabold text-purple-300 border border-purple-300 rounded-md">
+            <button
+              className="cta-button connect-wallet-button"
+              onClick={connectWallet}
+            >
+              {currentUserAccount.length > 0 ? (
+                String(currentUserAccount).substring(0, 6) +
+                "..." +
+                String(currentUserAccount).substring(38)
+                + " | Refresh"
+              ) : (
+                <span>Connect Wallet</span>
+              )}
+            </button>
+          </li>
         </div>
         <div className="header-container">
-          {currentUserAccount ? renderLogout() : null}
+          {currentUserAccount
+            ? renderMintNFTButton()
+            : null}
         </div>
         <div className="header-container">
           <p className="sub-text gradient-text">
