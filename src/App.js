@@ -1,6 +1,6 @@
 import "./styles/App.css";
 import twitterLogo from "./assets/twitter-logo.svg";
-import openseaLogo from './assets/opensea-logo.png'
+import openseaLogo from './assets/opensea-logo.png';
 
 import { ethers } from "ethers";
 import NFTFLOW from "./abi/NFTFLOW.json";
@@ -9,8 +9,9 @@ import React from "react";
 // Constants
 const TWITTER_HANDLE = "NftflowStarkNet";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const OPENSEA_LINK = "https://testnets.opensea.io/collection/nftflow-membership-pass-x1ee7njvot";
-const CONTRACT_ADDRESS = "0x48E09beF65B4Ba709C69f7003C385f2aC09493D1";
+const OPENSEA_LINK = "https://testnets.opensea.io/collection/nftflow-membership-pass-ilvrs06q74";
+// const CONTRACT_ADDRESS = "0x48E09beF65B4Ba709C69f7003C385f2aC09493D1";
+const CONTRACT_ADDRESS = "0x155a43A97d63C931780699F778EB1d6e85Fc604D";
 // const CONTRACT_ADDRESS = "0x249F5fF0D0A4604912e2C27107cb5c22d8eD8dE1";
 const RINKEBY_CHAIN_ID = "0x4";
 
@@ -214,7 +215,7 @@ const App = () => {
   );
 
   return (
-    <div className="App">
+    <div className="App"> 
       <div className="container">
         <div className="header-container">
           <p className="header gradient-text">NFTflow Membership Pass</p>

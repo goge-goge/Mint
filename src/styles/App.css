@@ -1,13 +1,15 @@
 .App {
   height: 100vh;
-  background-color: #0d1116;
   overflow: scroll;
   text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .container {
   height: 100%;
-  background-color: #0d1116;
+  background-color: black;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
