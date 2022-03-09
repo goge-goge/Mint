@@ -9,11 +9,11 @@ import React from "react";
 // Constants
 const TWITTER_HANDLE = "NftflowStarkNet";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const OPENSEA_LINK = "https://testnets.opensea.io/collection/nftflow-membership-pass-zkut30ed3d";
+const OPENSEA_LINK = "https://testnets.opensea.io/collection/nftflow-membership-pass-hlmrfrwd7b";
 // const CONTRACT_ADDRESS = "0x48E09beF65B4Ba709C69f7003C385f2aC09493D1";
 // const CONTRACT_ADDRESS = "0x155a43A97d63C931780699F778EB1d6e85Fc604D";
 // const CONTRACT_ADDRESS = "0x249F5fF0D0A4604912e2C27107cb5c22d8eD8dE1";
-const CONTRACT_ADDRESS = "0xF9778aF1750b9670b018Ae2294a8794bAA151566";
+const CONTRACT_ADDRESS = "0xE5897615e347A842E0F39213A2aFD196a4A416b2";
 const RINKEBY_CHAIN_ID = "0x4";
 
 const App = () => {
