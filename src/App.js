@@ -9,18 +9,17 @@ import React from "react";
 // Constants
 const TWITTER_HANDLE = "NftflowStarkNet";
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
-const OPENSEA_LINK = "https://testnets.opensea.io/collection/nftflow-membership-pass-hlmrfrwd7b";
-// const CONTRACT_ADDRESS = "0x48E09beF65B4Ba709C69f7003C385f2aC09493D1";
-// const CONTRACT_ADDRESS = "0x155a43A97d63C931780699F778EB1d6e85Fc604D";
-// const CONTRACT_ADDRESS = "0x249F5fF0D0A4604912e2C27107cb5c22d8eD8dE1";
-const CONTRACT_ADDRESS = "0xde642E4B77d80349e566838165C339Ae36b146fC";
-const RINKEBY_CHAIN_ID = "0x4";
-const maxMintAmount = 2;
+const OPENSEA_LINK = "https://opensea.io/collection/nftflow-membership-pass";
+// const OPENSEA_LINK = "https://testnets.opensea.io/collection/nftflow-membership-pass-hlmrfrwd7b";
+// const CONTRACT_ADDRESS = "0x536406EaC631663af5E1f687CAbe46babDCBfADd";
+const CONTRACT_ADDRESS = "0x253954d29386e174Ed4BC69902391a8ED3fd51ca";
+const RINKEBY_CHAIN_ID = "0x1";
+// const RINKEBY_CHAIN_ID = "0x4";
+const maxMintAmount = 1;
 
 const App = () => {
   const [currentUserAccount, setCurrentUserAccount] = React.useState("");
   const [totalTokensMinted, setTotalTokensMinted] = React.useState(0);
-  const [count, setCount] = React.useState(1);
 
   const confirmNetwork = async (ethereum, chainId) => {
     let returnedChainId = await ethereum.request({ method: "eth_chainId" });
@@ -38,7 +37,7 @@ const App = () => {
 
     let ok = await confirmNetwork(ethereum, RINKEBY_CHAIN_ID);
     if (!ok) {
-      alert("You are not connected to the Rinkeby Test Network 😞!");
+      alert("You are not connected to the Ethereum Main Network 😞!");
       return;
     }
 
@@ -134,19 +133,6 @@ const App = () => {
 
   };
 
-  const incrementCount = () => {
-    if (count < maxMintAmount) {
-      setCount(count + 1);
-      console.log(count);
-    }
-  };
-
-  const decrementCount = () => {
-    if (count > 1) {
-      setCount(count - 1);
-      console.log(count);
-    }
-  };
 
   const mintNFT = async () => {
     try {
@@ -161,12 +147,10 @@ const App = () => {
         );
 
         let gasP = await provider.getGasPrice();
-        let mintValue = ethers.utils.parseEther(String(0.1 * count), 'ether').toHexString();
 
         try {
-          const tx = await connectedContract.mintNFT(count, {
+          const tx = await connectedContract.mint1({
             value: ethers.utils.parseEther('0.1', 'ether').toHexString(),
-            gasLimit: 10000000,
             gasPrice: gasP._hex,
           });
 
@@ -205,12 +189,8 @@ const App = () => {
   const renderMintNFTButton = () => (
     <div>
       <button className="cta-button connect-wallet-button" onClick={mintNFT}>
-        MINT
+        0.1 ETH MINT
       </button>
-      <br></br>
-      <button onClick={decrementCount}>-</button>
-      <span className="sub-text gradient-text">{ count }</span>
-      <button onClick={incrementCount}>+</button>
     </div>
   );
 
